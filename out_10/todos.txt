@@ -1,0 +1,7 @@
+1. Add error handling for non-existent uuid in update and delete operations in `database.py`.
+2. Add input data validation in request handlers in `main.py`.
+3. Add assertions to check body response data in unit tests in `test_main.py`.
+4. Check that all routes are defined correctly in the FastAPI app.
+5. Check that uuidv7 time-ordered UUID is being used.
+6. Ensure that no venv or other virtual environment is being created.
+7. Set up a proper deployment process to ensure that the server is not run directly.

@@ -1,0 +1,13 @@
+We're building a RESTful API for managing customer data. 
+We will handle POST and GET requests to /customer and GET, PUT, DELETE /customer/:uuid requests.
+Customers will have uuid, email, username, createdAt, updatedAt fields.
+We will write all of the tests for each endpoint before we write the handlers.
+We must test the body response data before we test http status codes in unit tests, this is vitally important.
+We will run tests the tests individually as we go to prove the api works as expected.
+We must prove the api endpoint works by running our unittest testing suite. 
+We will use Fastapi, unittest and uuidv7 time-ordered UUID. 
+We will update an in-memory db on create, update and delete requests.
+We must never run the server directly, this is very important. 
+We must make sure the fastapi app has all of the routes defined correctly.
+We must not create a venv or any other virtual environment.
+Start by planning the application step by step, then implement each step.
