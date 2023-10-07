@@ -1,0 +1,6 @@
+OAI_CONFIG_LIST
+venv
+**/.pytest_cache
+.cache
+.idea
+__pycache__
