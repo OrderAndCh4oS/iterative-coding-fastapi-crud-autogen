@@ -1,0 +1,5 @@
+1. Improve error handling in the API (main.py)
+2. Add more comprehensive tests and validate returned data (tests.py)
+3. Update tests for get, update, and delete customer operations to use a created customer's UUID (tests.py)
+4. Add data validation for the input data (main.py, models.py)
+5. Add logging to the application (main.py)

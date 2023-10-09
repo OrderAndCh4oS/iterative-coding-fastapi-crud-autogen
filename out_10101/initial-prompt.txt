@@ -1,0 +1,6 @@
+A RESTful API for managing customer data. 
+It will use Fastapi, Pydantic and unittest.
+It will update an in-memory db on create, update and delete requests.
+It will have a Customers table with uuid (string), email, username, createdAt, updatedAt columns.
+It will handle POST and GET requests to /customer and GET, PUT, DELETE /customer/:uuid requests.
+It will use separate Pydantic classes for the stored customers, any requests and responses. For example Customer, CreateCustomerRequest, UpdateCustomerRequest, CustomerResponse.

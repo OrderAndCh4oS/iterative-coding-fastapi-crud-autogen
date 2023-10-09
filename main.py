@@ -1,7 +1,7 @@
 import autogen
 import os
 
-seed = 123
+seed = 10101
 working_dir = f"out_{seed}"
 main_script_file = "main.py"
 n_code_iterations = 10

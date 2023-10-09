@@ -1,6 +1,0 @@
-We're building a RESTful API for managing customer data. 
-Customers will have uuid, email, username, createdAt, updatedAt fields.
-We will update an in-memory db on create, update and delete requests.
-We will use Fastapi, unittest and uuidv7 time-ordered UUID.
-We will handle POST and GET requests to /customer and GET, PUT, DELETE /customer/:uuid requests.
-We must make sure the fastapi app has all of the routes defined correctly.
