@@ -1,0 +1,7 @@
+Write A RESTful API for managing product data:
+It will use Fastapi for the app, Pydantic for validation and unittest for testing.
+It will have an in-memory db with wrapper functions to query the database.
+It will have a Products table with uuid (string), name, description, createdAt, updatedAt columns.
+Each entity must have getDetail, getList, createOne, updateOne, deleteOne request handlers.
+It must define each entities request handlers, unit tests and data models etc. in separate files. eg product_handlers.py, product_tests.py, product_models.py.
+It will use separate Pydantic classes for the stored entities, any requests and responses. For example Entity, CreateEntityRequest, UpdateEntityRequest, EntityResponse.
