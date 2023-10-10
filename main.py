@@ -73,13 +73,12 @@ def main(seed=42):
 It will use Fastapi for the app, Pydantic for validation and unittest for testing.
 It will have an in-memory db with wrapper functions to query the database.
 It will have a Products table with uuid (string), name, description, createdAt, updatedAt columns.
-Each entity must have getDetail, getList, createOne, updateOne, deleteOne request handlers.
-It must define each entities request handlers, unit tests and data models etc. in separate files. eg product_handlers.py, product_tests.py, product_models.py.
-It will use separate Pydantic classes for the stored entities, any requests and responses. For example Entity, CreateEntityRequest, UpdateEntityRequest, EntityResponse."""
+Each product must have getDetail, getList, createOne, updateOne, deleteOne request handlers.
+It must define each products request handlers, unit tests and data models etc. in separate files. eg product_handlers.py, product_tests.py, product_models.py.
+It will use separate Pydantic classes for the stored products, any requests and responses. For example Product, CreateProductRequest, UpdateProductRequest, ProductResponse."""
     assistant_rules = f"""You must test the body response data as a dict with assertDictEqual, this will make it easier to debug errors.
 You must test response data before testing the http response codes in unit tests, as status code errors do not provide useful debugging information in tests. 
-You will run each test individually as we go to prove each endpoint works as expected eg `python tests.py Tests.createEntityTest` or `python tests.py Tests.getEntityTest`.
-You must prove the api endpoint works by running the unittest testing suite only. 
+You must only use the unittest testing suite to prove the api endpoints work correctly. 
 You must never run the server and do not install uvicorn, wsgi or anything else like that, this is very important. 
 You must not create a venv or any other virtual environment.
 Work with the dev consultant to plan this project step by step and implement the steps."""
@@ -220,7 +219,7 @@ You must run all test files to make sure the existing code is working as expecte
 Make a todo list of any work that the dev team needs complete to accomplish the task or will improve the quality of the codebase.
 If any todos relate to existing files, be sure to include the names of the files that need to be edited to accomplish the task.
 Do not request work that's already been completed.
-You're not obligated to find fault, if everything is up to spec respond write an empty todo file TERMINATE""",
+You're not obligated to find fault, if everything is up to spec respond with TERMINATE""",
         is_termination_msg=lambda x: x.get("content", "").rstrip().endswith("TERMINATE")
         if x.get("content", "")
         else False,
@@ -230,7 +229,7 @@ You're not obligated to find fault, if everything is up to spec respond write an
             "write_todos": write_todos,
         },
     )
-    delete_file("todo.txt")
+
     project_structure = get_files_in_directory(working_dir)
     try:
         if len(project_structure) == 0:
@@ -257,7 +256,7 @@ Project spec:
 {read_file("initial_prompt.txt")}
 
 Discuss the project spec and remaining todos with the dev consultant and implement the plan.
-You can reject todo requests if you believe that they're not aligned with the project spec.
+You must reject all todo requests that are not aligned with the project spec.
 You must run the tests and fix any remaining errors.
 
 Remaining Todos:
@@ -268,7 +267,9 @@ Remaining Todos:
     except:
         pass
 
+    delete_file("todo.txt")
+
 
 if __name__ == "__main__":
-    # main(436)
-    main(randint(1, 2048))
+    main(340)
+    # main(randint(1, 2048))

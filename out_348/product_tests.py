@@ -9,6 +9,7 @@ from datetime import datetime
 
 client = TestClient(app)
 
+
 class TestProductHandlers(unittest.TestCase):
     def setUp(self):
         database.clear()
@@ -25,18 +26,32 @@ class TestProductHandlers(unittest.TestCase):
     def test_get_product(self):
         response = client.get(f"/products/{self.uuid}")
         self.assertEqual(response.status_code, 200)
-        self.assertEqual(response.json(), {
-            "uuid": self.product.uuid,
-            "name": self.product.name,
-            "description": self.product.description,
-            "createdAt": self.product.createdAt.isoformat(),
-            "updatedAt": self.product.updatedAt.isoformat(),
-        })
+        self.assertEqual(
+            response.json(),
+            {
+                "uuid": self.product.uuid,
+                "name": self.product.name,
+                "description": self.product.description,
+                "createdAt": self.product.createdAt.isoformat(),
+                "updatedAt": self.product.updatedAt.isoformat(),
+            },
+        )
 
     def test_get_all_products(self):
         response = client.get("/products")
         self.assertEqual(response.status_code, 200)
-        self.assertEqual(response.json(), [self.product.model_dump()])
+        self.assertEqual(
+            response.json(),
+            [
+                {
+                    "uuid": self.product.uuid,
+                    "name": self.product.name,
+                    "description": self.product.description,
+                    "createdAt": self.product.createdAt.isoformat(),
+                    "updatedAt": self.product.updatedAt.isoformat(),
+                }
+            ],
+        )
 
     def test_create_product(self):
         request = CreateProductRequest(
@@ -61,6 +76,7 @@ class TestProductHandlers(unittest.TestCase):
     def test_delete_product(self):
         response = client.delete(f"/products/{self.uuid}")
         self.assertEqual(response.status_code, 200)
+
 
 if __name__ == "__main__":
     unittest.main()
